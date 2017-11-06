@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.rick.sharona</groupId>
+    <artifactId>sharona</artifactId>
+    <!--<version>0.0.-3-RELEASE</version>-->
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>my-sharona</name>
+    <description>My Sharona</description>
+
+
+    <scm>
+        <connection>scm:git:https://github.com/rickreesrr/mysharona</connection>
+        <developerConnection>scm:git:https://github.com/rickreesrr/mysharona.git</developerConnection>
+        <url>https://github.com/rickreesrr/mysharona.git</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>external.atlassian.jgitflow</groupId>
+            <artifactId>jgitflow-maven-plugin</artifactId>
+            <version>1.0-m5.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-jgitflow-plugin</artifactId>
+                <version>1.0-alpha20</version>
+
+                <configuration>
+                    <flowInitContext>
+                        <masterBranchName>master</masterBranchName>
+                        <developBranchName>develop</developBranchName>
+                        <featureBranchPrefix>feature-</featureBranchPrefix>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+                        <versionTagPrefix>version-</versionTagPrefix>
+                    </flowInitContext>
+                    <noDeploy>true</noDeploy>
+                    <squash>false</squash>
+                    <allowUntracked>true</allowUntracked>
+                    <!--<scmCommentPrefix>[RELEASE] </scmCommentPrefix>-->
+                </configuration>
+
+                <!--<configuration>-->
+                <!--&lt;!&ndash; Enable this to push to origin using SSH keys &ndash;&gt;-->
+                <!--<enableSshAgent>false</enableSshAgent>-->
+                <!--&lt;!&ndash; Keep your maven submodules at the same version as the parent POM &ndash;&gt;-->
+                <!--<autoVersionSubmodules>true</autoVersionSubmodules>-->
+                <!--&lt;!&ndash; Pusing in-development features to origin allows all devs to see what each other are working on &ndash;&gt;-->
+                <!--<pushFeatures>true</pushFeatures>-->
+                <!--&lt;!&ndash; This allows the CI server (e.g. Jenkins) to automatically push new releases to-->
+                <!--origin; you can then either manually deploy them or, if you are doing Continuous-->
+                <!--Deployments, auto-deploy them to prod &ndash;&gt;-->
+                <!--<pushReleases>true</pushReleases>-->
+                <!--&lt;!&ndash; Hot Fixes should be pushed to origin as well so that any dev can pick them up &ndash;&gt;-->
+                <!--<pushHotfixes>true</pushHotfixes>-->
+                <!--&lt;!&ndash; Prevents deployments from dev workstations so that they can be done by a CI server &ndash;&gt;-->
+                <!--<noDeploy>true</noDeploy>-->
+                <!--<flowInitContext>-->
+                <!--&lt;!&ndash; You can customize your development branch name. Why? Because it's faster to type-->
+                <!--'git push origin dvlp' than 'git push origin develop' ;-) &ndash;&gt;-->
+                <!--<developBranchName>develop</developBranchName>-->
+                <!--&lt;!&ndash; You can also customize your tag prefixes &ndash;&gt;-->
+                <!--<versionTagPrefix>rev-</versionTagPrefix>-->
+                <!--</flowInitContext>-->
+                <!--</configuration>-->
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+</project>
